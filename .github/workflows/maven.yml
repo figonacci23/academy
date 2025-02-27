@@ -36,6 +36,3 @@ jobs:
 
     - name: list Docker images
       run: docker image ls
-
-    - name: check if docker matches
-      run: docker inspect --type=image academy:$(date +%s)
