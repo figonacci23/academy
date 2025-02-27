@@ -16,6 +16,6 @@ runs:
         password: ${{inputs.dockerhub_password}}
 
     - name: push
-      uses: docker push ${{ENV.DOCKER_IMAGE_NAME}}
+      uses: docker push ${{ ENV.DOCKER_IMAGE_NAME }}
 
 
