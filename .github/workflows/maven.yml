@@ -25,3 +25,7 @@ jobs:
     - uses: figonacci23/academy/.github/actions/maven_build@main
 
     - uses: figonacci23/academy/.github/actions/docker_build@main
+      with:
+        dockerfile_path: src/main/docker/Dockerfile.jvm
+        image-name: academy
+        tag-name: v1
