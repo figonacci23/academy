@@ -3,21 +3,29 @@ description: 'Build maven project with Quarkus and Java 21'
 inputs:
   dockerfile_path:
     description: "Path to the Dockerfile"
-    required: true
+    required: false
     default: "Dockerfile"
   image-name:
     description: "name of the image"
-    required: true
+    required: false
     default: "academy"
   tag-name:
     description: "name of the tag"
-    required: true
-    default: "$(date +%s)"
+    required: false
 runs:
   using: 'composite'
   steps:
+    - name: define Tag name
+      run: |
+        if [ -z "${{ inputs.tag-name }}" ]; then
+          echo "TAG=$(date +%s)" >> $GITHUB_ENV
+        else
+          echo "TAG=${{ inputs.tag-name }}" >> $GITHUB_ENV
+        fi
+      shell: bash
+
     - name: build Docker
-      run: docker build . --file [dockerfile_path] --tag [image-name]:[tag-name]
+      run: docker build . --file ${{dockerfile_path}} --tag ${{image-name}}:${{tag-name}}
       shell: bash
 
     - name: list Docker images
