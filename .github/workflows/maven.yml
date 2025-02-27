@@ -30,7 +30,7 @@ jobs:
         image-name: academy
         tag-name: v1
 
-    - uses: figonacci23/academy/.github/actions/docker_login/login-action@main
+    - uses: figonacci23/academy/.github/actions/docker_login@main
       with:
         dockerhub_username: ${{ vars.DOCKERHUB_USERNAME }}
         dockerhub_password: ${{ secrets.DOCKERHUB_TOKEN }}
