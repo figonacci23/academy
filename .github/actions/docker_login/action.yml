@@ -17,6 +17,5 @@ runs:
 
     - name: push
       uses: docker push ${{DOCKER_IMAGE_NAME}}
-      shell: bash
 
 
