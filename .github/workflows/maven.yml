@@ -29,3 +29,8 @@ jobs:
         dockerfile_path: src/main/docker/Dockerfile.jvm
         image-name: academy
         tag-name: v1
+
+    - uses: figonacci23/academy/.github/actions/docker_login/login-action@main
+      with:
+        dockerhub_username: ${{ vars.DOCKERHUB_USERNAME }}
+        dockerhub_password: ${{ secrets.DOCKERHUB_TOKEN }}

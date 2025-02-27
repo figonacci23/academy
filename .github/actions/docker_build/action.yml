@@ -24,8 +24,12 @@ runs:
         fi
       shell: bash
 
+    - name: define image name
+      run: echo "DOCKER_IMAGE_NAME=${{inputs.image-name}}:${{env.TAG}}" >> $GITHUB_ENV
+      shell: bash
+
     - name: build Docker
-      run: docker build . --file ${{inputs.dockerfile_path}} --tag ${{inputs.image-name}}:${{inputs.tag-name}}
+      run: docker build . --file ${{inputs.dockerfile_path}} --tag ${{inputs.image-name}}:${{env.TAG}}
       shell: bash
 
     - name: list Docker images
