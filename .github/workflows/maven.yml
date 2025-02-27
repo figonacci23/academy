@@ -27,7 +27,7 @@ jobs:
     - uses: figonacci23/academy/.github/actions/docker_build@main
       with:
         dockerfile_path: src/main/docker/Dockerfile.jvm
-        image-name: academy
+        image-name: ${{vars.DOCKER_USER}}/academy
         tag-name: v1
 
     - uses: figonacci23/academy/.github/actions/docker_login@main
