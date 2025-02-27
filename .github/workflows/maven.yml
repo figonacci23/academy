@@ -27,9 +27,15 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
     - name: build Docker
       run: docker build . --file src/main/docker/Dockerfile.jvm --tag academy:$(date +%s)
+
     - name: list Docker images
       run: docker image ls
+
+    - name: check if docker matches
+      run: docker inspect academy
