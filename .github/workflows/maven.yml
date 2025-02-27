@@ -24,8 +24,4 @@ jobs:
 
     - uses: figonacci23/academy/.github/actions/maven_build@main
 
-    - name: build Docker
-      run: docker build . --file src/main/docker/Dockerfile.jvm --tag academy:$(date +%s)
-
-    - name: list Docker images
-      run: docker image ls
+    - uses: figonacci23/academy/.github/actions/docker_build@main
