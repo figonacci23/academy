@@ -38,4 +38,4 @@ jobs:
       run: docker image ls
 
     - name: check if docker matches
-      run: docker inspect academy
+      run: docker inspect --type=image academy
