@@ -5,8 +5,8 @@ runs:
   steps:
     - name: build Docker
       run: docker build . --file src/main/docker/Dockerfile.jvm --tag academy:$(date +%s)
-      shell: ubuntu
+      shell: bash
 
     - name: list Docker images
       run: docker image ls
-      shell: ubuntu
+      shell: bash
