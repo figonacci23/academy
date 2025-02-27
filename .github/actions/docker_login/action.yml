@@ -14,7 +14,6 @@ runs:
       with:
         username: ${{inputs.dockerhub_username}}
         password: ${{inputs.dockerhub_password}}
-      shell: bash
 
     - name: push
       uses: docker push ${{DOCKER_IMAGE_NAME}}
