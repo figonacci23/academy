@@ -1,10 +1,23 @@
 name: Build Maven project
 description: 'Build maven project with Quarkus and Java 21'
+inputs:
+  dockerfile_path:
+    description: "Path to the Dockerfile"
+    required: true
+    default: "Dockerfile"
+  image-name:
+    description: "name of the image"
+    required: true
+    default: "academy"
+  tag-name:
+    description: "name of the tag"
+    required: true
+    default: "$(date +%s)"
 runs:
   using: 'composite'
   steps:
     - name: build Docker
-      run: docker build . --file src/main/docker/Dockerfile.jvm --tag academy:$(date +%s)
+      run: docker build . --file [dockerfile_path] --tag [image-name]:[tag-name]
       shell: bash
 
     - name: list Docker images
