@@ -32,5 +32,5 @@ jobs:
 
     - uses: figonacci23/academy/.github/actions/docker_login@main
       with:
-        dockerhub_username: ${{ vars.DOCKERHUB_USERNAME }}
-        dockerhub_password: ${{ secrets.DOCKERHUB_TOKEN }}
+        dockerhub_username: ${{ vars.DOCKER_USER }}
+        dockerhub_password: ${{ secrets.DOCKER_KEY }}
